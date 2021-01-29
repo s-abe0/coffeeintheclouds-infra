@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  jenkins:
+    container_name: jenkins
+    image: custom/jenkins-docker
+    build:
+      context: jenkins
+    ports:
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "$PWD/jenkins/jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+  nginx:
+    container_name: nginx
+    image: nginx:mainline
+    ports:
+      - "80:80"
+    networks:
+      - net
+networks:
+  net:
