@@ -14,3 +14,4 @@ chmod +x /usr/local/bin/docker-compose
 mkdir /opt/coffeeintheclouds/
 cp -r jenkins/ /opt/coffeeintheclouds/
 cp -r nginx/ /opt/coffeeintheclouds/
+chown -R $(whoami):$(whoami) /opt/coffeeintheclouds/*
